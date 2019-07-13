@@ -1,0 +1,35 @@
+{
+  "name": "ts-demo",
+  "version": "1.0.0",
+  "description": "Typescript demo",
+  "main": "index.js",
+  "author": "Jihad D. Waspada",
+  "license": "MIT",
+  "private": false,
+  "scripts": {
+    "dev": "webpack-dev-server --open",
+    "build": "parcel build index.html --no-source-maps",
+    "prettier": "prettier --write 'src/**/*.{ts,tsx,js,jsx}'"
+  },
+  "dependencies": {
+    "@material-ui/core": "^3.9.3",
+    "@material-ui/icons": "^3.0.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-redux": "^7.1.0",
+    "react-router-dom": "^5.0.1",
+    "redux": "^4.0.4"
+  },
+  "devDependencies": {
+    "@babel/core": "^7.5.4",
+    "@babel/preset-env": "^7.5.4",
+    "@babel/preset-react": "^7.0.0",
+    "babel-loader": "^8.0.6",
+    "prettier": "^1.18.2",
+    "react-hot-loader": "^4.12.6",
+    "redux-devtools-extension": "^2.13.8",
+    "webpack": "^4.35.3",
+    "webpack-cli": "^3.3.5",
+    "webpack-dev-server": "^3.7.2"
+  }
+}
