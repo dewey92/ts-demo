@@ -1,9 +1,14 @@
 {
   "compilerOptions": {
     "esModuleInterop": true,
-    "jsx": "react",
+    "jsx": "react", // IMPORTANT!
     "strictNullChecks": true,
-    "sourceMap": true
+    "sourceMap": true,
+    "allowJs": true, // IMPORTANT!
+    "outDir": "./dist"
   },
-  "include": ["src/", "./test.ts"],
+  "exclude": [
+    "node_modules",
+    "dist"
+  ]
 }
