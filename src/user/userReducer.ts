@@ -1,6 +1,14 @@
-const initialState = {}
+import { UserId, User } from './userTypes'
+import { Reducer } from 'redux'
+import { addUser, editUser, deleteUser } from './userActions'
 
-export default function userReducer(state = initialState, action) {
+type Actions = ReturnType<typeof addUser | typeof editUser | typeof deleteUser>
+
+type UserStore = Record<UserId, User>
+
+const initialState: UserStore = {}
+
+const userReducer: Reducer<UserStore, Actions> = (state = initialState, action) => {
   switch (action.type) {
     case 'ADD_USER': {
       const newUser = action.payload
@@ -18,7 +26,7 @@ export default function userReducer(state = initialState, action) {
       return {
         ...state,
         [userId]: {
-          ...state[editedUser.id],
+          ...state[editedUser.userId],
           ...editedUser,
         },
       }
@@ -37,3 +45,5 @@ export default function userReducer(state = initialState, action) {
     }
   }
 }
+
+export default userReducer

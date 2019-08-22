@@ -12,15 +12,16 @@ import {
 } from '@material-ui/core'
 import Add from '@material-ui/icons/Add'
 import { addUser } from './userActions'
+import { TsDemoStore } from '../reducers'
 
-const UsersList = ({ users, ...props }) => {
+const UsersList: React.FC<MergedProps> = ({ users, ...props }) => {
   const [name, setName] = React.useState('')
   const [email, setEmail] = React.useState('')
   const [age, setAge] = React.useState('')
 
   const onSubmitNeWRoom = () => {
     const userId = new Date().getTime()
-    props.addUser({ userId, name, email, age })
+    props.addUser({ userId, name, email, age: parseInt(age, 10) })
     setName('')
     setEmail('')
     setAge('')
@@ -86,8 +87,10 @@ const UsersList = ({ users, ...props }) => {
   )
 }
 
-const mapState = state => ({
-  users: Object.entries(state.users).map(([id, user]) => ({ id, ...user })),
+type MergedProps = ReturnType<typeof mapState> & typeof mapDispatch
+
+const mapState = (state: TsDemoStore) => ({
+  users: Object.values(state.users),
 })
 
 const mapDispatch = { addUser }

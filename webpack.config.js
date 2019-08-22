@@ -7,16 +7,16 @@ module.exports = {
   devtool: 'inline-source-map',
   module: {
     rules: [
+      // {
+      //   test: /\.(js|jsx)$/,
+      //   exclude: /node_modules/,
+      //   use: ['babel-loader']
+      // },
       {
-        test: /\.(js|jsx)$/,
-        exclude: /node_modules/,
-        use: ['babel-loader']
-      },
-      /* {
-        test: /\.tsx?$/,
+        test: /\.[tj]sx?$/,
         use: 'ts-loader',
         exclude: /node_modules/
-      } */
+      }
     ]
   },
   plugins: [
